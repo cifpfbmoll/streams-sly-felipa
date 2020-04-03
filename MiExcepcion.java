@@ -15,7 +15,7 @@ public class MiExcepcion extends Exception {
 
     public MiExcepcion(String nuevo) {
         super();
-        this.mensaje = "Error al ingresar los datos. Deben ser en mayúscula.";
+        this.mensaje = ".";
     }
 
     public String getMensaje() {
