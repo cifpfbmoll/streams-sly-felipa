@@ -5,9 +5,8 @@
  */
 package gestionarpractica7;
 
-import java.io.FileInputStream;
+import java.io.FileReader;
 import java.io.IOException;
-import java.text.Normalizer;
 
 /**
  *
@@ -16,18 +15,42 @@ import java.text.Normalizer;
 public class LeerFicheroCaracter {
 
     public void LeerCaracter() throws IOException {
-        FileInputStream leer = new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/paraLeer/textoUno.txt");
-        int c = 0;
-        char caracter = ' ';
-        while (c != -1) {
-            c = leer.read();
+        FileReader lector = new FileReader("C:/Users/sly/Documents/NetBeansProjects/paraLeer/textoUno.txt");
+        String[] datos = {"Título", "Año", "Director", "Duración",
+            "Sinopsis", "Reparto", "Sesión"};
+        int caracter;
+        int contador = 0;
+        boolean verificar = true;
+        boolean encontrarSigno = true;
 
-//            caracter = Normalizer.normalize(leer.read(), Normalizer.Form.NFD);
-//            caracter = (char) c;
-            System.out.println(caracter + "---" + c);
+        while ((caracter = lector.read()) != -1) {
+            if (((char) caracter) != '#' && ((char) caracter) != '{' && verificar == true) {
 
+                if (verificar) {
+                    if (encontrarSigno) {
+                        System.out.print(datos[contador] + ": "); // imprimir elemento de datos
+                        encontrarSigno = false;
+                    }
+                    System.out.print(((char) caracter));
+
+                } else {
+
+                }
+
+            } else {
+                //encutra #
+                // aumenta porque se ha encontrado # , se imprime otro string de datos
+                contador++;
+                encontrarSigno = true;
+
+                System.out.println("");
+
+            }
         }
-        leer.close();
+
+        System.out.print((char) caracter);
+
+        lector.close();// Cierra el archivo 
     }
 
 }

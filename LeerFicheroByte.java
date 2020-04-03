@@ -26,7 +26,6 @@ public class LeerFicheroByte {
                 char c = (char) b; // se convierte a char
                 letras[contador] = c;  // se guarda los char
                 contador++;
-
             }
 
             //leer y escribir 
@@ -51,7 +50,7 @@ public class LeerFicheroByte {
                     corchete = i;
                 }
             }
-            letras[corchete] = '#'; //475
+            letras[corchete] = '#'; // en la posición 475 ({) se cambia por #
             while (contar <= letras.length - 1 && encontrarSigno == false) {
                 if (letras[contar] != '#' && contar != letras.length - 1) {
                     letra = Character.toString(letras[contar]);
@@ -76,8 +75,8 @@ public class LeerFicheroByte {
                             frase = "";
                         } else {
                             escribir.write('\n');
-                            escribir.write(datos[data].getBytes());
-                            escribir.write(" : ".getBytes());//sinopsis
+                            escribir.write(datos[data].getBytes()); //sinopsis
+                            escribir.write(" : ".getBytes());
                             for (int i = 0; i < frase.length(); i++) {
                                 char c = frase.charAt(i);
                                 if (c == ' ') {
@@ -124,7 +123,7 @@ public class LeerFicheroByte {
 
 /* REFERENCIAS
     
-- Espacio U+0020
+
 https://javadesdecero.es/avanzado/streams-de-bytes/
    
     
