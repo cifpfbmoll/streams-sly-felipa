@@ -5,13 +5,7 @@
  */
 package gestionarpractica7;
 
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileReader;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.ArrayList;
+import java.io.*;
 
 /**
  *
@@ -19,9 +13,9 @@ import java.util.ArrayList;
  */
 public class LeerFicheroLinea {
 
-    public void leerNuevoFichero() throws IOException {
-        File entrada = new File("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliOriginal.txt");
-        File salida = new File("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliFinal.txt");
+    public void leerNuevoFichero(String rutaLeer, String rutaEscribir) throws IOException {
+        File entrada = new File(rutaLeer);
+        File salida = new File(rutaEscribir);
         BufferedReader lector = new BufferedReader(new FileReader(entrada));
         BufferedWriter escritor = new BufferedWriter(new FileWriter(salida));
 
