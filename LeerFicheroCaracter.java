@@ -6,6 +6,7 @@
 package gestionarpractica7;
 
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 
 /**
@@ -15,42 +16,60 @@ import java.io.IOException;
 public class LeerFicheroCaracter {
 
     public void LeerCaracter() throws IOException {
-        FileReader lector = new FileReader("C:/Users/sly/Documents/NetBeansProjects/paraLeer/textoUno.txt");
+
+//        try {
+        FileReader lector = new FileReader("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliOriginal.txt");
+        FileWriter escritor = new FileWriter("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliFinal.txt");
+
         String[] datos = {"Título", "Año", "Director", "Duración",
             "Sinopsis", "Reparto", "Sesión"};
+//
+        String cartelera = ("--------------------------------------\n"
+                + "       Cartelera de CineFBMoll\n"
+                + "--------------------------------------\n\n");
+
+        String linea = "--------------------------------------\n\n";
+
+        //se escribe la cartelera
+        for (int i = 0; i < cartelera.length(); i++) {
+            escritor.write(cartelera.charAt(i));
+        }
+
         int caracter;
         int contador = 0;
-        boolean verificar = true;
         boolean encontrarSigno = true;
 
         while ((caracter = lector.read()) != -1) {
-            if (((char) caracter) != '#' && ((char) caracter) != '{' && verificar == true) {
-
-                if (verificar) {
+            if (((char) caracter) != '#') {
+                if (((char) caracter) != '{') {
                     if (encontrarSigno) {
-                        System.out.print(datos[contador] + ": "); // imprimir elemento de datos
+                        for (int i = 0; i < datos[contador].length(); i++) {
+                            escritor.write(datos[contador].charAt(i)); // imprimir elemento de datos
+                        }
+                        escritor.write(": ");
                         encontrarSigno = false;
                     }
-                    System.out.print(((char) caracter));
-
+                    escritor.write(((char) caracter));
                 } else {
+                    escritor.write("\n");
+                    escritor.write("\n");
+                    for (int i = 0; i < linea.length(); i++) {
+                        escritor.write(linea.charAt(i));
+                    }
 
+                    contador = 0;
+                    encontrarSigno = true;
                 }
-
             } else {
-                //encutra #
-                // aumenta porque se ha encontrado # , se imprime otro string de datos
+                escritor.write("\n");
+                escritor.write("\n");
                 contador++;
                 encontrarSigno = true;
-
-                System.out.println("");
-
             }
-        }
-
-        System.out.print((char) caracter);
-
+        }//while
         lector.close();// Cierra el archivo 
+        escritor.close();// Cierra el archivo 
+
     }
 
 }
