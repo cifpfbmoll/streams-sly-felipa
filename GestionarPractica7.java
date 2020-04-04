@@ -11,13 +11,13 @@ public class GestionarPractica7 {
 
 //---------------------PRUEBAS---------------------------
         try {
-            Cartelera c = new Cartelera();
-            Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
-               for (Cartelera peli : pelis) {
-                System.out.println(peli.mostrarDatos());
-            }
-//            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
-            //            acceder.LecturaEscrituraOBjetos();
+//            Cartelera c = new Cartelera();
+//            Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
+//               for (Cartelera peli : pelis) {
+//                System.out.println(peli.mostrarDatos());
+            
+            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
+                        acceder.LecturaEscrituraOBjetos();
             //            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
             //            acceso.LecturaEscrituraOBjetos();
             //            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();

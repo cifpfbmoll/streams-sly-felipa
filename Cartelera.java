@@ -110,9 +110,6 @@ public class Cartelera {
             //la lineaLeida lo paso a un array, la división lo hace por un '\n' 
             String[] texto = lineaLeida.split("\n");
 
-//            for (int i = 0; i < texto.length; i++) {
-//                System.out.println(texto[i]);
-//            }
             int agregarAtributos = 0;
             for (int peli = 0; peli < listaCartelera.length; peli++) {
                 listaCartelera[peli].setTitulo(texto[agregarAtributos]);
@@ -129,7 +126,6 @@ public class Cartelera {
                 agregarAtributos++;
                 listaCartelera[peli].setSesion(texto[agregarAtributos]);
                 agregarAtributos++;
-
             }
         }
         lector.close();

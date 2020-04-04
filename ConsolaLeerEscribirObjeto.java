@@ -17,7 +17,7 @@ public class ConsolaLeerEscribirObjeto {
 
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
-                        new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt")));
+                        new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
 
         while (true) {
             Persona p = (Persona) leer.readObject();
