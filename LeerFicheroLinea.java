@@ -6,9 +6,12 @@
 package gestionarpractica7;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
@@ -17,38 +20,55 @@ import java.io.IOException;
 public class LeerFicheroLinea {
 
     public void leerNuevoFichero() throws IOException {
-        File entrada = new File("C:/Users/sly/Documents/NetBeansProjects/paraLeer/textoUno.txt");
+        File entrada = new File("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliOriginal.txt");
+        File salida = new File("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliFinal.txt");
         BufferedReader lector = new BufferedReader(new FileReader(entrada));
-        boolean eof = false;
-        String lineaLeida = "";
-        String[] espacioTexto = null;
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(salida));
 
+        String[] datos = {"Título", "Año", "Director", "Duración",
+            "Sinopsis", "Reparto", "Sesión"};
+        
+        escritor.write("--------------------------------------\n"
+                + "       Cartelera de CineFBMoll\n"
+                + "--------------------------------------\n\n");
+        
+        int contador = 0;
+        int datosNum = 0;
+        escritor.newLine();
         while (lector.ready() != false) { // eof de BufferedReader
-            lineaLeida = lector.readLine();
-            espacioTexto = lineaLeida.split(" ");
+            String lineaLeida = lector.readLine();
 
-            if (lineaLeida != null) {
-                System.out.println(lineaLeida.length());
-//                System.out.println(espacioTexto[5]);
-                eof = true;
+            lineaLeida = lineaLeida.replace('#', '\n');
+            lineaLeida = lineaLeida.replace('{', '\n');
+            //la lineaLeida lo paso a un array, la división lo hace por un '\n' 
+            String[] texto = lineaLeida.split("\n");
 
-            } else {
-                eof = true;
+            for (int i = 0; i < texto.length; i++) {
+                if (datosNum <= datos.length) {
+                    escritor.write(datos[datosNum] + " : " + texto[i]+"\n");
+                }
+                escritor.write("\n");
+                datosNum++;
+                contador++;
+                if (contador == datos.length) {
+                    datosNum = 0;
+                    escritor.write("--------------------------------------\n\n");
+
+                }
             }
+
         }
+
         lector.close();
+
+        escritor.close();
     }
+
 }
+
 /* REFERENCIAS
     
-
-
-- Espacio U+0020
-    https://stackoverflow.com/questions/8172420/how-to-convert-a-char-to-a-string
-    http://ayudaitver.blogspot.com/2014/07/uso-basico-del-bufferedreader.html
+    http://ayudaitver.blogspot.com/2014/07/uso-basico-del-bufferedreader.html   
     
-    
-    
-    
-    
-     */
+     
+ */

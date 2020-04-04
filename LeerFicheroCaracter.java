@@ -15,15 +15,13 @@ import java.io.IOException;
  */
 public class LeerFicheroCaracter {
 
-    public void LeerCaracter() throws IOException {
+    public void LeerCaracter(String rutaLeer, String rutaEscribir) throws IOException {
 
-//        try {
-        FileReader lector = new FileReader("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliOriginal.txt");
-        FileWriter escritor = new FileWriter("C:\\Users\\sly\\Documents\\NetBeansProjects\\GestionarPractica7\\src\\gestionarpractica7\\peliFinal.txt");
+        FileReader lector = new FileReader(rutaLeer);
+        FileWriter escritor = new FileWriter(rutaEscribir);
 
         String[] datos = {"Título", "Año", "Director", "Duración",
             "Sinopsis", "Reparto", "Sesión"};
-//
         String cartelera = ("--------------------------------------\n"
                 + "       Cartelera de CineFBMoll\n"
                 + "--------------------------------------\n\n");
