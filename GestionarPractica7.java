@@ -13,8 +13,10 @@ public class GestionarPractica7 {
         try {
             LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
             acceder.LecturaEscrituraOBjetos();
-            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
-            accediendo.LecturaEscrituraOBjetos();
+            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
+            acceso.LecturaEscrituraOBjetos();
+//            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
+//            accediendo.LecturaEscrituraOBjetos();
 
         } catch (Exception e) {
             System.out.println("Error de lectura ");

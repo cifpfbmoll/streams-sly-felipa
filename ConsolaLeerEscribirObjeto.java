@@ -14,10 +14,10 @@ import java.io.*;
 public class ConsolaLeerEscribirObjeto {
 
     public void LecturaEscrituraOBjetos() throws ClassNotFoundException, IOException {
-//        String a = "C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliOriginal.txt";
+
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
-                        new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
+                        new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt")));
 
         while (true) {
             Persona p = (Persona) leer.readObject();
@@ -25,6 +25,7 @@ public class ConsolaLeerEscribirObjeto {
             System.out.println(p.getEdad());
             System.out.println(p.getDni());
             leer.close();
+
         }
 
     }

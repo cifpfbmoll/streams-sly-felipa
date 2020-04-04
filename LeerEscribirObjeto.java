@@ -5,32 +5,41 @@
  */
 package gestionarpractica7;
 
-import java.io.BufferedOutputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.ObjectOutputStream;
+import java.io.*;
 
 /**
  *
  * @author sly
  */
 public class LeerEscribirObjeto {
-    
-     public void LecturaEscrituraOBjetos() throws ClassNotFoundException, IOException {
-//        String a = "C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliOriginal.txt";
-//        ObjectInputStream leer = new ObjectInputStream(
-//                new BufferedInputStream(
-//                        new FileInputStream("")));
 
-        ObjectOutputStream escribir = new ObjectOutputStream(
-                new BufferedOutputStream(
-                        new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliFinal.txt")));
+    public void LecturaEscrituraOBjetos() throws ClassNotFoundException, IOException {
 
-        escribir.writeObject(new Persona("Juan", 40, "102030"));
-        escribir.writeObject(new Persona("Mario", 50, "202030"));
-        escribir.writeObject(new Persona("Marco", 60, "302030"));
-        escribir.close();
+        try {
+            ObjectInputStream leer = new ObjectInputStream(
+                    new BufferedInputStream(
+                            new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
+
+            ObjectOutputStream escribir = new ObjectOutputStream(
+                    new BufferedOutputStream(
+                            new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt")));
+
+            while (true) { //debe leer / imprimir todos los objetos
+                Persona p = (Persona) leer.readObject();
+                escribir.writeObject((Persona)p);
+                System.out.println(p.getNombre());
+                System.out.println(p.getEdad());
+                System.out.println(p.getDni());
+
+            }
+        } catch (Exception e) {
+            System.out.println("FIn fichero");
+
+        } finally {
+            leer.close();
+            escribir.close();
+        }
 
     }
-    
+
 }

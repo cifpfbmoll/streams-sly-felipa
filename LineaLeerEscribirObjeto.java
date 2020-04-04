@@ -14,10 +14,6 @@ import java.io.*;
 public class LineaLeerEscribirObjeto {
 
     public void LecturaEscrituraOBjetos() throws ClassNotFoundException, IOException {
-//        String a = "C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliOriginal.txt";
-//        ObjectInputStream leer = new ObjectInputStream(
-//                new BufferedInputStream(
-//                        new FileInputStream("")));
 
         ObjectOutputStream escribir = new ObjectOutputStream(
                 new BufferedOutputStream(
