@@ -95,6 +95,12 @@ public class Cartelera {
         BufferedReader lector = new BufferedReader(new FileReader("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliOriginal.txt"));
 
         Cartelera listaCartelera[] = new Cartelera[2];
+
+        //se genera los objetos
+        for (int i = 0; i < listaCartelera.length; i++) {
+            listaCartelera[i] = new Cartelera();
+        }
+
         while (lector.ready() != false) { // eof de BufferedReader
             String lineaLeida = lector.readLine();
 
@@ -104,27 +110,33 @@ public class Cartelera {
             //la lineaLeida lo paso a un array, la división lo hace por un '\n' 
             String[] texto = lineaLeida.split("\n");
 
+//            for (int i = 0; i < texto.length; i++) {
+//                System.out.println(texto[i]);
+//            }
+            int agregarAtributos = 0;
             for (int peli = 0; peli < listaCartelera.length; peli++) {
-                int i = 0;
-//                for (int i = 0; i < listaCartelera.length; i++) {
-//                    if (datosNum <= setCartelera.length) {
-                listaCartelera[peli].setTitulo(texto[i]);
-                i++;
-                listaCartelera[peli].setAnyo(texto[i]);
-                i++;
-                listaCartelera[peli].setDirector(texto[i]);
-                i++;
-                listaCartelera[peli].setDuracion(texto[i]);
-                i++;
-                listaCartelera[peli].setSinopsis(texto[i]);
-                i++;
-                listaCartelera[peli].setReparto(texto[i]);
-                i++;
-                listaCartelera[peli].setSesion(texto[i]);
-//                    }
-//                }
+                listaCartelera[peli].setTitulo(texto[agregarAtributos]);
+                agregarAtributos++;
+                System.out.println(agregarAtributos);
+                listaCartelera[peli].setAnyo(texto[agregarAtributos]);
+                agregarAtributos++;
+                System.out.println(agregarAtributos);
+                listaCartelera[peli].setDuracion(texto[agregarAtributos]);
+                agregarAtributos++;
+                System.out.println(agregarAtributos);
+
+                listaCartelera[peli].setSinopsis(texto[agregarAtributos]);
+                agregarAtributos++;
+                System.out.println(agregarAtributos);
+
+                listaCartelera[peli].setReparto(texto[agregarAtributos]);
+                agregarAtributos++;
+                System.out.println(agregarAtributos);
+
+                listaCartelera[peli].setSesion(texto[agregarAtributos]);
             }
         }
+        lector.close();
         return listaCartelera;
     }
 
