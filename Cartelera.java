@@ -117,23 +117,19 @@ public class Cartelera {
             for (int peli = 0; peli < listaCartelera.length; peli++) {
                 listaCartelera[peli].setTitulo(texto[agregarAtributos]);
                 agregarAtributos++;
-                System.out.println(agregarAtributos);
                 listaCartelera[peli].setAnyo(texto[agregarAtributos]);
                 agregarAtributos++;
-                System.out.println(agregarAtributos);
+                listaCartelera[peli].setDirector(texto[agregarAtributos]);
+                agregarAtributos++;
                 listaCartelera[peli].setDuracion(texto[agregarAtributos]);
                 agregarAtributos++;
-                System.out.println(agregarAtributos);
-
                 listaCartelera[peli].setSinopsis(texto[agregarAtributos]);
                 agregarAtributos++;
-                System.out.println(agregarAtributos);
-
                 listaCartelera[peli].setReparto(texto[agregarAtributos]);
                 agregarAtributos++;
-                System.out.println(agregarAtributos);
-
                 listaCartelera[peli].setSesion(texto[agregarAtributos]);
+                agregarAtributos++;
+
             }
         }
         lector.close();

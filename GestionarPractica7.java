@@ -13,8 +13,7 @@ public class GestionarPractica7 {
         try {
             Cartelera c = new Cartelera();
             Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
-            System.out.println(pelis.length);
-            for (Cartelera peli : pelis) {
+               for (Cartelera peli : pelis) {
                 System.out.println(peli.mostrarDatos());
             }
 //            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
