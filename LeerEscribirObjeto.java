@@ -30,10 +30,11 @@ public class LeerEscribirObjeto {
                 System.out.println(p.getNombre());
                 System.out.println(p.getEdad());
                 System.out.println(p.getDni());
+                System.out.println("");
 
             }
         } catch (Exception e) {
-            System.out.println("FIn fichero");
+            System.out.println("Fin fichero");
 
         } finally {
             leer.close();

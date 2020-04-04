@@ -11,13 +11,18 @@ public class GestionarPractica7 {
 
 //---------------------PRUEBAS---------------------------
         try {
-            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
-            acceder.LecturaEscrituraOBjetos();
-            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
-            acceso.LecturaEscrituraOBjetos();
-//            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
-//            accediendo.LecturaEscrituraOBjetos();
-
+            Cartelera c = new Cartelera();
+            Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
+            System.out.println(pelis.length);
+            for (Cartelera peli : pelis) {
+                System.out.println(peli.mostrarDatos());
+            }
+//            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
+            //            acceder.LecturaEscrituraOBjetos();
+            //            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
+            //            acceso.LecturaEscrituraOBjetos();
+            //            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
+            //            accediendo.LecturaEscrituraOBjetos();
         } catch (Exception e) {
             System.out.println("Error de lectura ");
 
@@ -25,7 +30,7 @@ public class GestionarPractica7 {
 
         /* 
         
-         */
+
         //------------------------------------------------------  
         // Menú principal
         boolean seguir = true;
@@ -83,7 +88,7 @@ public class GestionarPractica7 {
                 System.out.println("Opción no válida");
             }
         }
-
+         */
 //Lectura y escritura de fichero línea a línea con buffers (character Streams).
 //                //String a = "C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliOriginal.txt";
 //                //String b = "C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliFinal.txt";

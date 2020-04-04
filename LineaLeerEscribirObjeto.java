@@ -19,10 +19,12 @@ public class LineaLeerEscribirObjeto {
                 new BufferedOutputStream(
                         new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
 
-        escribir.writeObject(new Persona("Juan", 40, "102030"));
-        escribir.writeObject(new Persona("Mario", 50, "202030"));
-        escribir.writeObject(new Persona("Marco", 60, "302030"));
-        escribir.close();
+       
 
     }
+
+//        escribir.writeObject(new Cartelera(titulo, anyo, director, duracion, sinopsis, reparto, sesion));
+//        escribir.writeObject(new Persona("Mario", 50, "202030"));
+//        escribir.writeObject(new Persona("Marco", 60, "302030"));
+//        escribir.close();
 }

@@ -17,6 +17,7 @@ public class Persona implements Serializable{
     private String nombre;
     private int edad;
     private String dni;
+    
     public Persona (String nombre, int edad, String dni){
     super();
     this.nombre = nombre;

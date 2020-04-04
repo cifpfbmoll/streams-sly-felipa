@@ -36,18 +36,14 @@ public class LeerFicheroLinea {
             lineaLeida = lineaLeida.replace('{', '\n');
             //la lineaLeida lo paso a un array, la división lo hace por un '\n' 
             String[] texto = lineaLeida.split("\n");
-
             for (int i = 0; i < texto.length; i++) {
                 if (datosNum <= datos.length) {
-                    escritor.write(datos[datosNum] + " : " + texto[i]+"\n");
+                    System.out.println( texto[i]);
                 }
-                escritor.write("\n");
                 datosNum++;
                 contador++;
                 if (contador == datos.length) {
                     datosNum = 0;
-                    escritor.write("--------------------------------------\n\n");
-
                 }
             }
 
