@@ -6,6 +6,7 @@
 package gestionarpractica7;
 
 import java.io.*;
+import java.util.Scanner;
 
 /**
  *
@@ -30,4 +31,21 @@ public class ConsolaLeerEscribirObjeto {
 
     }
 
+    //lee y escribe desde consola
+    public void LecturaEscrituraOBjetosManual() throws IOException {
+        ObjectOutputStream escribir = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt")));
+
+        Scanner read = new Scanner(System.in);
+        System.out.println("¿Cuántas carteleras agregarás?");
+        //se ingresa cantidad de carteleras, para generar el array
+        //se crea el array y se piden los datos de cada objeto del array
+        //se agrega cada objeto al array y lo devuelve con la información rellenada
+        Cartelera[] lista = Cartelera.listaCartelera(read.nextInt());
+
+        //se escribe un array de cartelera. 
+        escribir.writeObject(lista);
+        escribir.close();
+    }
 }

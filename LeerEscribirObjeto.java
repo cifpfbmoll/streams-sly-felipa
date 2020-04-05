@@ -23,9 +23,11 @@ public class LeerEscribirObjeto {
                 new BufferedOutputStream(
                         new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt")));
 
+//se lee un array de cartelera. 
         Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
         leer.close();
 
+//se escribe un array de cartelera. 
         escribir.writeObject(listaCartelera);
         escribir.close();
     }

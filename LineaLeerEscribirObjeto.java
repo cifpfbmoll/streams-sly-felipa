@@ -6,6 +6,7 @@
 package gestionarpractica7;
 
 import java.io.*;
+import java.util.Scanner;
 
 /**
  *
@@ -13,8 +14,8 @@ import java.io.*;
  */
 public class LineaLeerEscribirObjeto {
 
+//lee y escribe con rutas ingresadas
     public void LecturaEscrituraOBjetos() throws IOException {
-
 //devuelve un array de cartelera
         Cartelera listaCartelera[] = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliOriginal.txt");
         ObjectOutputStream escribir = new ObjectOutputStream(
@@ -22,8 +23,9 @@ public class LineaLeerEscribirObjeto {
                         new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
 
 //se escribe un array cartelera
-            escribir.writeObject(listaCartelera);
-            escribir.close();
-
+        escribir.writeObject(listaCartelera);
+        escribir.close();
     }
+
+
 }

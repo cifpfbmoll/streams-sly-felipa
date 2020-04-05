@@ -1,6 +1,7 @@
 package gestionarpractica7;
 
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestionarPractica7 {
@@ -11,17 +12,33 @@ public class GestionarPractica7 {
 
 //---------------------PRUEBAS---------------------------
         try {
+//            Cartelera[] lista = new Cartelera[2];
+//
+//            for (int i = 0; i < lista.length; i++) {
+////por cada obj, se agregan los datos
+//                System.out.println("Cartelera " + (i + 1) + " :");
+//                System.out.println("");
+//                Cartelera obj = new Cartelera();
+//                obj.agregarDatosManual();
+//                lista[i] = obj;
+//                System.out.println("");
+//            }
+
+//            System.out.println("¿Cuántas carteleras agregarás?");
+//            Cartelera[]  lista = Cartelera.listaCartelera(read.nextInt());
+//            System.out.println(lista.length);
 //            Cartelera c = new Cartelera();
+//            c.agregarDatosManual();
+//            System.out.println(c.mostrarDatos());
 //            Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
 //               for (Cartelera peli : pelis) {
 //                System.out.println(peli.mostrarDatos());
-
 //            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
 //            acceder.LecturaEscrituraOBjetos();
 //            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
 //            acceso.LecturaEscrituraOBjetos();
             ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
-            accediendo.LecturaEscrituraOBjetos();
+            accediendo.LecturaEscrituraOBjetosManual();
         } catch (Exception e) {
             System.out.println("Error de lectura escritura ");
 

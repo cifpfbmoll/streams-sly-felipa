@@ -7,12 +7,13 @@ package gestionarpractica7;
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 /**
  *
  * @author sly
  */
-public class Cartelera implements Serializable{
+public class Cartelera implements Serializable {
 
     private String titulo;
     private String anyo;
@@ -130,6 +131,42 @@ public class Cartelera implements Serializable{
         }
         lector.close();
         return listaCartelera;
+    }
+
+    public static Cartelera[] listaCartelera(int cantidadCartelera) {
+//el usuario elige cuántas carteleras ingresa
+        Cartelera[] lista = new Cartelera[cantidadCartelera];
+
+        for (int i = 0; i < lista.length; i++) {
+//por cada obj, se agregan los datos
+            System.out.println("Cartelera " + (i + 1) + " :");
+            System.out.println("");
+            Cartelera obj = new Cartelera();
+            obj.agregarDatosManual();
+//se agrega el objeto al array
+            lista[i] = obj;
+            System.out.println("");
+        }
+        return lista;
+    }
+
+    public void agregarDatosManual() {
+        Scanner read = new Scanner(System.in);
+        System.out.println("Ingresa el Título de la película");
+        this.setTitulo(read.next());
+        System.out.println("Ingresa el Año de la película");
+        this.setAnyo(read.next());
+        System.out.println("Ingresa el Director de la película");
+        this.setDirector(read.next());
+        System.out.println("Ingresa el Duración de la película");
+        this.setDuracion(read.next());
+        System.out.println("Ingresa la Sinopsis de la película");
+        this.setSinopsis(read.next());
+        System.out.println("Ingresa el Reparto de la película");
+        this.setReparto(read.next());
+        System.out.println("Ingresa la Sesión de la película");
+        this.setSesion(read.next());
+
     }
 
     public String mostrarDatos() {
