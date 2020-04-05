@@ -21,6 +21,7 @@ public class LineaLeerEscribirObjeto {
                 new BufferedOutputStream(
                         new FileOutputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
 
+//se escribe un array cartelera
             escribir.writeObject(listaCartelera);
             escribir.close();
 

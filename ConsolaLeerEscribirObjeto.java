@@ -14,19 +14,22 @@ import java.io.*;
 public class ConsolaLeerEscribirObjeto {
 
     public void LecturaEscrituraOBjetos() throws ClassNotFoundException, IOException {
-        Cartelera listaCartelera[] = new Cartelera[2];
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
 
         int contador = 0;
 
-        listaCartelera = (Cartelera[]) leer.readObject();
-        while (contador <= listaCartelera.length) {
+//leo los objetos en el mismo formato en el que fueron escritos
+//array de Cartelera
+        Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
+        leer.close();
+
+//recorro el array devuelto para imprimir los atributos de los objetos
+        while (contador < listaCartelera.length) {
             System.out.println(listaCartelera[contador].mostrarDatos());
             contador++;
         }
-        leer.close();
 
     }
 
