@@ -12,17 +12,6 @@ public class GestionarPractica7 {
 
 //---------------------PRUEBAS---------------------------
         try {
-//            Cartelera[] lista = new Cartelera[2];
-//
-//            for (int i = 0; i < lista.length; i++) {
-////por cada obj, se agregan los datos
-//                System.out.println("Cartelera " + (i + 1) + " :");
-//                System.out.println("");
-//                Cartelera obj = new Cartelera();
-//                obj.agregarDatosManual();
-//                lista[i] = obj;
-//                System.out.println("");
-//            }
 
 //            System.out.println("¿Cuántas carteleras agregarás?");
 //            Cartelera[]  lista = Cartelera.listaCartelera(read.nextInt());
@@ -45,8 +34,7 @@ public class GestionarPractica7 {
         }
 
         /* 
-        
-
+         */
         //------------------------------------------------------  
         // Menú principal
         boolean seguir = true;
@@ -58,37 +46,46 @@ public class GestionarPractica7 {
             op = menu();
 
             if (op == 1) {
-                String rutaLeer = pedirRuta("leer");
+                File paraLeer = pedirRuta("leer");
                 System.out.println("");
-                String rutaEscribir = pedirRuta("esribir");
-                LeerFicheroByte accediendo = new LeerFicheroByte();
-                accediendo.LeerByte(rutaLeer, rutaEscribir);
+                File paraEscribir = pedirRuta("escribir");
+                LeerByte(paraLeer, paraEscribir);
                 System.out.println("\n ***** Revisa el fichero modificado. *****\n");
             } else if (op == 2) {
-                String rutaLeer = pedirRuta("leer");
+                File paraLeer = pedirRuta("leer");
                 System.out.println("");
-                String rutaEscribir = pedirRuta("escribir");
-                LeerFicheroCaracter acceso = new LeerFicheroCaracter();
-                acceso.LeerCaracter(rutaLeer, rutaEscribir);
+                File paraEscribir = pedirRuta("escribir");
+                LeerCaracter(paraLeer, paraEscribir);
                 System.out.println("\n ***** Revisa el fichero modificado. *****\n");
-
             } else if (op == 3) {
-                String rutaLeer = pedirRuta("leer");
+                File paraLeer = pedirRuta("leer");
                 System.out.println("");
-                String rutaEscribir = pedirRuta("escribir");
+                File paraEscribir = pedirRuta("escribir");
                 LeerFicheroLinea acceder = new LeerFicheroLinea();
-                acceder.leerNuevoFichero(rutaLeer, rutaEscribir);
+                acceder.leerNuevoFichero(paraLeer, paraEscribir);
 
             } else if (op == 4) {
                 while (seguirSub) {
                     opSub = subMenu();
                     if (opSub == 1) {
+                        File paraLeer = pedirRuta("leer");
+                        System.out.println("");
+                        File paraEscribir = pedirRuta("escribir");
 
                     } else if (opSub == 2) {
+                        File paraLeer = pedirRuta("leer");
+                        System.out.println("");
+                        File paraEscribir = pedirRuta("escribir");
 
                     } else if (opSub == 3) {
+                        File paraLeer = pedirRuta("leer");
+                        System.out.println("");
+                        File paraEscribir = pedirRuta("escribir");
 
                     } else if (opSub == 4) {
+                        File paraLeer = pedirRuta("leer");
+                        System.out.println("");
+                        File paraEscribir = pedirRuta("escribir");
 
                     } else if (opSub == 5) {
                         seguirSub = false;
@@ -104,19 +101,33 @@ public class GestionarPractica7 {
                 System.out.println("Opción no válida");
             }
         }
-         */
-//Lectura y escritura de fichero línea a línea con buffers (character Streams).
-//                //String a = "C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliOriginal.txt";
-//                //String b = "C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliFinal.txt";
 // C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliOriginal.txt
-//    C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliFinal.txt
+// C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliFinal.txt
     }
 
-    public static String pedirRuta(String palabra) {
+    public static int menu() {
         Scanner read = new Scanner(System.in);
-        String ruta = "";
+
+        System.out.println("*****************************************************************");
+        System.out.println("                        Menú Principal");
+        System.out.println("*****************************************************************");
+        System.out.println("");
+        System.out.println("1- Lectura y escritura del fichero de cartelera byte a byte");
+        System.out.println("2- Lectura y escritura de fichero de cartelera carácter a carácter");
+        System.out.println("3- Lectura y escritura de fichero línea a línea con buffers");
+        System.out.println("4- Tratamiento de Objetos");
+        System.out.println("5- Salir");
+        System.out.println("");
+        System.out.println("*****************************************************************");
+        return read.nextInt();
+
+    }
+
+    public static File pedirRuta(String palabra) {
+        Scanner read = new Scanner(System.in);
         System.out.println("Ingresa la ruta para " + palabra);
-        return ruta = read.nextLine();
+        File documento = new File(read.nextLine());
+        return documento;
     }
 
     public static int subMenu() {
@@ -136,22 +147,207 @@ public class GestionarPractica7 {
         return read.nextInt();
     }
 
-    public static int menu() {
-        Scanner read = new Scanner(System.in);
+    // lectura y escritura byte a byte
+    public static void LeerByte(File rutaLeer, File rutaEscribir) throws IOException {
 
-        System.out.println("*****************************************************************");
-        System.out.println("                        Menú Principal");
-        System.out.println("*****************************************************************");
-        System.out.println("");
-        System.out.println("1- Lectura y escritura del fichero de cartelera byte a byte");
-        System.out.println("2- Lectura y escritura de fichero de cartelera carácter a carácter");
-        System.out.println("3- Lectura y escritura de fichero línea a línea con buffers");
-        System.out.println("4- Tratamiento de Objetos");
-        System.out.println("5- Salir");
-        System.out.println("");
-        System.out.println("*****************************************************************");
-        return read.nextInt();
+        try {
+            FileInputStream leer = new FileInputStream(rutaLeer);
+            FileOutputStream escribir = new FileOutputStream(rutaEscribir);
 
+            char[] letras = new char[numCaracteres(rutaLeer)]; //array para almacenar todos los char
+            int b = 0;
+//            letras = new char[numCaracteres(rutaLeer)];
+            int contador = 0;
+            while (b != -1) {
+                b = leer.read(); //se lee los bytes
+                char c = (char) b; // se convierte a char
+                letras[contador] = c;  // se guarda los char
+                contador++;
+            }
+
+            //leer y escribir 
+            String[] datos = {"Título", "Año", "Director", "Duración",
+                "Sinopsis", "Reparto", "Sesión"};
+            String letra = "";
+            String frase = "";
+            int contar = 0;
+            boolean encontrarSigno = false;
+            int data = -1;
+
+            escribir.write("--------------------------------------".getBytes());
+            escribir.write('\n');
+            escribir.write("       Cartelera de CineFBMoll".getBytes());
+            escribir.write('\n');
+            escribir.write("--------------------------------------".getBytes());
+            escribir.write('\n');
+
+            int corchete = 0;
+            for (int i = 0; i < letras.length; i++) {
+                if (letras[i] == '{') {
+                    corchete = i;
+                }
+            }
+            letras[corchete] = '#'; // en la posición 475 ({) se cambia por #
+            while (contar <= letras.length - 1 && encontrarSigno == false) {
+                if (letras[contar] != '#' && contar != letras.length - 1) {
+                    letra = Character.toString(letras[contar]);
+                    frase += letra; // si no es un # se forma una frase
+
+                    contar++;
+                } else {
+                    encontrarSigno = true;
+                    data++;
+                    contar++;
+                    int espacios = 0;
+                    int cortarLinea = 14; //cuenta los espacios ' ' para dar un salto de línea
+                    if (encontrarSigno == true) {
+                        if (frase.length() < 100) { // si es o no un párrafo
+                            escribir.write('\n');
+                            escribir.write(datos[data].getBytes());
+                            escribir.write(" : ".getBytes());
+                            escribir.write(frase.getBytes());
+                            escribir.write('\n');
+
+                            encontrarSigno = false;
+                            frase = "";
+                        } else {
+                            escribir.write('\n');
+                            escribir.write(datos[data].getBytes()); //sinopsis
+                            escribir.write(" : ".getBytes());
+                            for (int i = 0; i < frase.length(); i++) {
+                                char c = frase.charAt(i);
+                                if (c == ' ') {
+                                    espacios++;
+                                }
+                                if (espacios == cortarLinea) { //comprobación para dar salto de línea
+                                    escribir.write('\n');
+                                    cortarLinea += 15;
+                                }
+                                escribir.write(c);
+                            }
+                            escribir.write('\n');
+                            encontrarSigno = false;
+                            frase = "";
+                        }
+
+                        if (data + 1 == datos.length) {
+                            data = -1;
+                            escribir.write("-----------------------------".getBytes());
+                        }
+                    }//'#'
+                }
+            }//while
+        } catch (IOException exc) {
+            System.out.println("Error de lectura ");
+        }
+
+    }
+
+    public static int numCaracteres(File rutaLeer) throws IOException { //números de cacacteres para crear el array
+        FileInputStream leer = new FileInputStream(rutaLeer);
+
+        int b = 0;
+        int contador = 0;
+        while (b != -1) {
+            b = leer.read();
+            contador++;
+        }
+        leer.close();
+        return contador;
+    }
+
+    //lectura y escritura caracter a caracter
+    public static void LeerCaracter(File rutaLeer, File rutaEscribir) throws IOException {
+
+        FileReader lector = new FileReader(rutaLeer);
+        FileWriter escritor = new FileWriter(rutaEscribir);
+
+        String[] datos = {"Título", "Año", "Director", "Duración",
+            "Sinopsis", "Reparto", "Sesión"};
+        String cartelera = ("--------------------------------------\n"
+                + "       Cartelera de CineFBMoll\n"
+                + "--------------------------------------\n\n");
+
+        String linea = "--------------------------------------\n\n";
+
+        //se escribe la cartelera
+        for (int i = 0; i < cartelera.length(); i++) {
+            escritor.write(cartelera.charAt(i));
+        }
+
+        int caracter;
+        int contador = 0;
+        boolean encontrarSigno = true;
+
+        while ((caracter = lector.read()) != -1) {
+            if (((char) caracter) != '#') {
+                if (((char) caracter) != '{') {
+                    if (encontrarSigno) {
+                        for (int i = 0; i < datos[contador].length(); i++) {
+                            escritor.write(datos[contador].charAt(i)); // imprimir elemento de datos
+                        }
+                        escritor.write(": ");
+                        encontrarSigno = false;
+                    }
+                    escritor.write(((char) caracter));
+                } else {
+                    escritor.write("\n");
+                    escritor.write("\n");
+                    for (int i = 0; i < linea.length(); i++) {
+                        escritor.write(linea.charAt(i));
+                    }
+
+                    contador = 0;
+                    encontrarSigno = true;
+                }
+            } else {
+                escritor.write("\n");
+                escritor.write("\n");
+                contador++;
+                encontrarSigno = true;
+            }
+        }//while
+        lector.close();// Cierra el archivo 
+        escritor.close();// Cierra el archivo 
+
+    }
+
+    //lectura y escritura linea a linea
+    public static void LeerFicheroLinea(File rutaLeer, File rutaEscribir) throws IOException {
+  
+        BufferedReader lector = new BufferedReader(new FileReader(rutaLeer));
+        BufferedWriter escritor = new BufferedWriter(new FileWriter(rutaEscribir));
+
+        String[] datos = {"Título", "Año", "Director", "Duración",
+            "Sinopsis", "Reparto", "Sesión"};
+
+        escritor.write("--------------------------------------\n"
+                + "       Cartelera de CineFBMoll\n"
+                + "--------------------------------------\n\n");
+
+        int contador = 0;
+        int datosNum = 0;
+        escritor.newLine();
+        while (lector.ready() != false) { // eof de BufferedReader
+            String lineaLeida = lector.readLine();
+
+            lineaLeida = lineaLeida.replace('#', '\n');
+            lineaLeida = lineaLeida.replace('{', '\n');
+            //la lineaLeida lo paso a un array, la división lo hace por un '\n' 
+            String[] texto = lineaLeida.split("\n");
+            for (int i = 0; i < texto.length; i++) {
+                if (datosNum <= datos.length) {
+                    System.out.println(texto[i]);
+                }
+                datosNum++;
+                contador++;
+                if (contador == datos.length) {
+                    datosNum = 0;
+                }
+            }
+        }
+        lector.close();
+        escritor.close();
     }
 
 }
