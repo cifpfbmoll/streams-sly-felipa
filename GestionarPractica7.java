@@ -10,32 +10,7 @@ public class GestionarPractica7 {
 
         Scanner read = new Scanner(System.in);
 
-//---------------------PRUEBAS---------------------------
-        try {
-
-//            System.out.println("¿Cuántas carteleras agregarás?");
-//            Cartelera[]  lista = Cartelera.listaCartelera(read.nextInt());
-//            System.out.println(lista.length);
-//            Cartelera c = new Cartelera();
-//            c.agregarDatosManual();
-//            System.out.println(c.mostrarDatos());
-//            Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
-//               for (Cartelera peli : pelis) {
-//                System.out.println(peli.mostrarDatos());
-//            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
-//            acceder.LecturaEscrituraOBjetos();
-//            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
-//            acceso.LecturaEscrituraOBjetos();
-            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
-            accediendo.LecturaEscrituraOBjetosManual();
-        } catch (Exception e) {
-            System.out.println("Error de lectura escritura ");
-
-        }
-
-        /* 
-         */
-        //------------------------------------------------------  
+        
         // Menú principal
         boolean seguir = true;
         boolean seguirSub = true;
@@ -61,8 +36,7 @@ public class GestionarPractica7 {
                 File paraLeer = pedirRuta("leer");
                 System.out.println("");
                 File paraEscribir = pedirRuta("escribir");
-                LeerFicheroLinea acceder = new LeerFicheroLinea();
-                acceder.leerNuevoFichero(paraLeer, paraEscribir);
+                LeerFicheroLinea(paraLeer, paraEscribir);
 
             } else if (op == 4) {
                 while (seguirSub) {
@@ -314,7 +288,7 @@ public class GestionarPractica7 {
 
     //lectura y escritura linea a linea
     public static void LeerFicheroLinea(File rutaLeer, File rutaEscribir) throws IOException {
-  
+
         BufferedReader lector = new BufferedReader(new FileReader(rutaLeer));
         BufferedWriter escritor = new BufferedWriter(new FileWriter(rutaEscribir));
 
@@ -348,6 +322,76 @@ public class GestionarPractica7 {
         }
         lector.close();
         escritor.close();
+    }
+
+    //          **acciones con objetos**
+    // objeto linea a linea
+    public static void LineaLeerEscribirObjeto(File rutaLeer, File rutaEscribir) throws IOException {
+//devuelve un array de cartelera
+        Cartelera listaCartelera[] = Cartelera.cargarDatosCartelera(rutaLeer);
+        ObjectOutputStream escribir = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(rutaEscribir)));
+
+//se escribe un array cartelera
+        escribir.writeObject(listaCartelera);
+        escribir.close();
+    }
+
+    // objeto : Leer SalObj) y escrituraficheroSalObj2.
+    public static void LecturaEscrituraOBjetos(File rutaLeer, File rutaEscribir) throws ClassNotFoundException, IOException {
+
+        ObjectInputStream leer = new ObjectInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(rutaLeer)));
+
+        ObjectOutputStream escribir = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(rutaEscribir)));
+
+        //se lee un array de cartelera. 
+        Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
+        leer.close();
+
+        //se escribe un array de cartelera. 
+        escribir.writeObject(listaCartelera);
+        escribir.close();
+    }
+
+    //objeto consola : leer ficheroSalObj2 y escritura por consola 
+    public void LecturaEscrituraOBjetosConsola(File rutaLeer) throws ClassNotFoundException, IOException {
+        ObjectInputStream leer = new ObjectInputStream(
+                new BufferedInputStream(
+                        new FileInputStream(rutaLeer)));
+
+        //leo los objetos en el mismo formato en el que fueron escritos
+        //array de Cartelera
+        Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
+        leer.close();
+
+        //recorro el array devuelto para imprimir los atributos de los objetos
+        for (Cartelera cartelera : listaCartelera) {
+            System.out.println(cartelera.mostrarDatos());
+        }
+
+    }
+
+    //objeto consola : leer por consola y SOBREescritura ficheroSalObj2 
+    public void LecturaEscrituraOBjetosManual(File rutaEscribir) throws IOException {
+        ObjectOutputStream escribir = new ObjectOutputStream(
+                new BufferedOutputStream(
+                        new FileOutputStream(rutaEscribir)));
+
+        Scanner read = new Scanner(System.in);
+        System.out.println("¿Cuántas carteleras agregarás?");
+        //se ingresa cantidad de carteleras, para generar el array
+        //se crea el array y se piden los datos de cada objeto
+        //se agrega cada objeto al array y lo devuelve con la información rellenada
+        Cartelera[] lista = Cartelera.listaCartelera(read.nextInt());
+
+        //se escribe un array de cartelera. 
+        escribir.writeObject(lista);
+        escribir.close();
     }
 
 }

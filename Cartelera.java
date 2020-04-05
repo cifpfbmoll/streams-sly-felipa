@@ -92,8 +92,8 @@ public class Cartelera implements Serializable {
         this.sesion = sesion;
     }
 
-    public static Cartelera[] cargarDatosCartelera(String ruta) throws FileNotFoundException, IOException {
-        BufferedReader lector = new BufferedReader(new FileReader("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/peliOriginal.txt"));
+    public static Cartelera[] cargarDatosCartelera(File rutaLeer) throws FileNotFoundException, IOException {
+        BufferedReader lector = new BufferedReader(new FileReader(rutaLeer));
 
         Cartelera listaCartelera[] = new Cartelera[2];
 
