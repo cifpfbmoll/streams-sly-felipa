@@ -15,15 +15,15 @@ public class GestionarPractica7 {
 //            Cartelera[] pelis = Cartelera.cargarDatosCartelera("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt");
 //               for (Cartelera peli : pelis) {
 //                System.out.println(peli.mostrarDatos());
-            
+
             LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
-                        acceder.LecturaEscrituraOBjetos();
+            acceder.LecturaEscrituraOBjetos();
             //            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
             //            acceso.LecturaEscrituraOBjetos();
-            //            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
-            //            accediendo.LecturaEscrituraOBjetos();
+//            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
+//            accediendo.LecturaEscrituraOBjetos();
         } catch (Exception e) {
-            System.out.println("Error de lectura ");
+            System.out.println("Error de lectura escritura ");
 
         }
 

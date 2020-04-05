@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author sly
  */
-public class Cartelera {
+public class Cartelera implements Serializable{
 
     private String titulo;
     private String anyo;
