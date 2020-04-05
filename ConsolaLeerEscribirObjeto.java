@@ -21,31 +21,12 @@ public class ConsolaLeerEscribirObjeto {
 
         int contador = 0;
 
+        listaCartelera = (Cartelera[]) leer.readObject();
         while (contador <= listaCartelera.length) {
-            Cartelera c = (Cartelera) leer.readObject();
-            listaCartelera[contador] = c;
             System.out.println(listaCartelera[contador].mostrarDatos());
-//            escribir.writeObject(listaCartelera[contador].getTitulo());
-//            escribir.writeObject(listaCartelera[contador].getAnyo());
-//            escribir.writeObject(listaCartelera[contador].getDirector());
-//            escribir.writeObject(listaCartelera[contador].getDuracion());
-//            escribir.writeObject(listaCartelera[contador].getSinopsis());
-//            escribir.writeObject(listaCartelera[contador].getReparto());
-//            escribir.writeObject(listaCartelera[contador].getSesion());
             contador++;
-//            Cartelera c = (Cartelera) leer.readObject();
-//            listaCartelera[contador] = c;
-//            System.out.println(listaCartelera[contador].mostrarDatos());
-//            contador++;
-
-//            Persona p = (Persona) leer.readObject();
-////            escribir.writeObject((Persona) p);
-//            System.out.println(p.getNombre());
-//            System.out.println(p.getEdad());
-//            System.out.println(p.getDni());
-//            System.out.println("");
-            leer.close();
         }
+        leer.close();
 
     }
 

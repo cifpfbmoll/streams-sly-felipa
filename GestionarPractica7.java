@@ -16,12 +16,12 @@ public class GestionarPractica7 {
 //               for (Cartelera peli : pelis) {
 //                System.out.println(peli.mostrarDatos());
 
-            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
-            acceder.LecturaEscrituraOBjetos();
+//            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
+//            acceder.LecturaEscrituraOBjetos();
             //            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
             //            acceso.LecturaEscrituraOBjetos();
-//            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
-//            accediendo.LecturaEscrituraOBjetos();
+            ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
+            accediendo.LecturaEscrituraOBjetos();
         } catch (Exception e) {
             System.out.println("Error de lectura escritura ");
 

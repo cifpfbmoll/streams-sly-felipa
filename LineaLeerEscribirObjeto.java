@@ -23,14 +23,6 @@ public class LineaLeerEscribirObjeto {
 
             escribir.writeObject(listaCartelera);
             escribir.close();
-            
-//        while (true) {            
-//            escribir.writeObject(new Persona("juan",40,"2020450"));
-//            escribir.writeObject(new Persona("mar",40,"2020450"));
-//            escribir.writeObject(new Persona("joan",40,"2020450"));
-//            
-//            escribir.close();
-//        }
 
     }
 }
