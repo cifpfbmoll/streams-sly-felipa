@@ -16,9 +16,7 @@ public class ConsolaLeerEscribirObjeto {
     public void LecturaEscrituraOBjetos() throws ClassNotFoundException, IOException {
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
-                        new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj.txt")));
-
-        int contador = 0;
+                        new FileInputStream("C:/Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/ficheroSalObj2.txt")));
 
 //leo los objetos en el mismo formato en el que fueron escritos
 //array de Cartelera
@@ -26,9 +24,8 @@ public class ConsolaLeerEscribirObjeto {
         leer.close();
 
 //recorro el array devuelto para imprimir los atributos de los objetos
-        while (contador < listaCartelera.length) {
-            System.out.println(listaCartelera[contador].mostrarDatos());
-            contador++;
+        for (Cartelera cartelera : listaCartelera) {
+            System.out.println(cartelera.mostrarDatos());
         }
 
     }

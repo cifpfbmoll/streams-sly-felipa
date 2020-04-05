@@ -18,8 +18,8 @@ public class GestionarPractica7 {
 
 //            LineaLeerEscribirObjeto acceder = new LineaLeerEscribirObjeto();
 //            acceder.LecturaEscrituraOBjetos();
-            //            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
-            //            acceso.LecturaEscrituraOBjetos();
+//            LeerEscribirObjeto acceso = new LeerEscribirObjeto();
+//            acceso.LecturaEscrituraOBjetos();
             ConsolaLeerEscribirObjeto accediendo = new ConsolaLeerEscribirObjeto();
             accediendo.LecturaEscrituraOBjetos();
         } catch (Exception e) {
