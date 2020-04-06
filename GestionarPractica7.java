@@ -1,7 +1,6 @@
 package gestionarpractica7;
 
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 public class GestionarPractica7 {
@@ -10,7 +9,6 @@ public class GestionarPractica7 {
 
         Scanner read = new Scanner(System.in);
 
-        
         // Menú principal
         boolean seguir = true;
         boolean seguirSub = true;
@@ -21,45 +19,96 @@ public class GestionarPractica7 {
             op = menu();
 
             if (op == 1) {
-                File paraLeer = pedirRuta("leer");
-                System.out.println("");
-                File paraEscribir = pedirRuta("escribir");
-                LeerByte(paraLeer, paraEscribir);
-                System.out.println("\n ***** Revisa el fichero modificado. *****\n");
+                try {
+                    File paraLeer = pedirRutaLeer();
+                    System.out.println("");
+                    File paraEscribir = pedirRutaEscribir();
+                    LeerByte(paraLeer, paraEscribir);
+                    System.out.println("\n ***** Revisa el fichero modificado. *****\n");
+                } catch (ExcepcionRutaInvalida ex) {
+                    System.out.println("");
+                    System.out.println(ex.getMessage());
+                    ex.guardarError(ex.getMessage(), ex);
+                }
+
             } else if (op == 2) {
-                File paraLeer = pedirRuta("leer");
-                System.out.println("");
-                File paraEscribir = pedirRuta("escribir");
-                LeerCaracter(paraLeer, paraEscribir);
-                System.out.println("\n ***** Revisa el fichero modificado. *****\n");
+                try {
+                    File paraLeer = pedirRutaLeer();
+                    System.out.println("");
+                    File paraEscribir = pedirRutaEscribir();
+                    LeerCaracter(paraLeer, paraEscribir);
+                    System.out.println("\n ***** Revisa el fichero modificado. *****\n");
+                } catch (IOException excepcion) {
+                    System.out.println("");
+                    System.out.println("Error al leer el archivo");
+                    System.out.println("");
+                } catch (ExcepcionRutaInvalida ex) {
+                    System.out.println("");
+                    //getMessage devuelve la cadena descriptiva almacenada en una excepción
+                    System.out.println(ex.getMessage());
+                    ex.guardarError(ex.getMessage(), ex);
+
+                }
             } else if (op == 3) {
-                File paraLeer = pedirRuta("leer");
-                System.out.println("");
-                File paraEscribir = pedirRuta("escribir");
-                LeerFicheroLinea(paraLeer, paraEscribir);
+                try {
+                    File paraLeer = pedirRutaLeer();
+                    System.out.println("");
+                    File paraEscribir = pedirRutaEscribir();
+                    LeerFicheroLinea(paraLeer, paraEscribir);
+                } catch (IOException excepcion) {
+                    System.out.println("");
+                    System.out.println("Error al leer el archivo");
+                    System.out.println("");
+                } catch (ExcepcionRutaInvalida ex) {
+                    System.out.println("");
+
+                    //getMessage devuelve la cadena descriptiva almacenada en una excepción
+                    System.out.println(ex.getMessage());
+                    ex.guardarError(ex.getMessage(), ex);
+
+                }
 
             } else if (op == 4) {
                 while (seguirSub) {
                     opSub = subMenu();
                     if (opSub == 1) {
-                        File paraLeer = pedirRuta("leer");
-                        System.out.println("");
-                        File paraEscribir = pedirRuta("escribir");
+
+                        try {
+                            File paraLeer = pedirRutaLeer();
+                            System.out.println("");
+                            File paraEscribir = pedirRutaEscribir();
+                        } catch (Exception e) {
+                            System.out.println("Error al leer el archivo");
+                        }
 
                     } else if (opSub == 2) {
-                        File paraLeer = pedirRuta("leer");
-                        System.out.println("");
-                        File paraEscribir = pedirRuta("escribir");
+
+                        try {
+                            File paraLeer = pedirRutaLeer();
+                            System.out.println("");
+                            File paraEscribir = pedirRutaEscribir();
+                        } catch (Exception e) {
+                            System.out.println("Error al leer el archivo");
+                        }
 
                     } else if (opSub == 3) {
-                        File paraLeer = pedirRuta("leer");
-                        System.out.println("");
-                        File paraEscribir = pedirRuta("escribir");
+
+                        try {
+                            File paraLeer = pedirRutaLeer();
+                            System.out.println("");
+                            File paraEscribir = pedirRutaEscribir();
+                        } catch (Exception e) {
+                            System.out.println("Error al leer el archivo");
+                        }
 
                     } else if (opSub == 4) {
-                        File paraLeer = pedirRuta("leer");
-                        System.out.println("");
-                        File paraEscribir = pedirRuta("escribir");
+                        try {
+                            File paraLeer = pedirRutaLeer();
+                            System.out.println("");
+                            File paraEscribir = pedirRutaEscribir();
+                        } catch (Exception e) {
+                            System.out.println("Error al leer el archivo");
+                        }
 
                     } else if (opSub == 5) {
                         seguirSub = false;
@@ -75,8 +124,6 @@ public class GestionarPractica7 {
                 System.out.println("Opción no válida");
             }
         }
-// C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliOriginal.txt
-// C:\Users\sly\Documents\NetBeansProjects\GestionarPractica7\src\gestionarpractica7\peliFinal.txt
     }
 
     public static int menu() {
@@ -97,13 +144,6 @@ public class GestionarPractica7 {
 
     }
 
-    public static File pedirRuta(String palabra) {
-        Scanner read = new Scanner(System.in);
-        System.out.println("Ingresa la ruta para " + palabra);
-        File documento = new File(read.nextLine());
-        return documento;
-    }
-
     public static int subMenu() {
         Scanner read = new Scanner(System.in);
         System.out.println("       *****************************************");
@@ -121,99 +161,117 @@ public class GestionarPractica7 {
         return read.nextInt();
     }
 
+    public static File pedirRutaLeer() throws ExcepcionRutaInvalida {
+        Scanner read = new Scanner(System.in);
+        System.out.println("Ingresa la ruta para leer: ");
+        File documento = new File(read.nextLine());
+        boolean existe = documento.exists();
+        if (!existe) {
+            throw new ExcepcionRutaInvalida("01");
+        }
+        return documento;
+    }
+
+    public static File pedirRutaEscribir() throws ExcepcionRutaInvalida {
+        Scanner read = new Scanner(System.in);
+        System.out.println("Ingresa la ruta para escribir: ");
+        File documento = new File(read.nextLine());
+        boolean existe = documento.exists();
+        if (!existe) {
+            throw new ExcepcionRutaInvalida("02");
+        }
+        return documento;
+    }
+
     // lectura y escritura byte a byte
     public static void LeerByte(File rutaLeer, File rutaEscribir) throws IOException {
 
-        try {
-            FileInputStream leer = new FileInputStream(rutaLeer);
-            FileOutputStream escribir = new FileOutputStream(rutaEscribir);
+        FileInputStream leer = new FileInputStream(rutaLeer);
+        FileOutputStream escribir = new FileOutputStream(rutaEscribir);
 
-            char[] letras = new char[numCaracteres(rutaLeer)]; //array para almacenar todos los char
-            int b = 0;
+        char[] letras = new char[numCaracteres(rutaLeer)]; //array para almacenar todos los char
+        int b = 0;
 //            letras = new char[numCaracteres(rutaLeer)];
-            int contador = 0;
-            while (b != -1) {
-                b = leer.read(); //se lee los bytes
-                char c = (char) b; // se convierte a char
-                letras[contador] = c;  // se guarda los char
-                contador++;
-            }
-
-            //leer y escribir 
-            String[] datos = {"Título", "Año", "Director", "Duración",
-                "Sinopsis", "Reparto", "Sesión"};
-            String letra = "";
-            String frase = "";
-            int contar = 0;
-            boolean encontrarSigno = false;
-            int data = -1;
-
-            escribir.write("--------------------------------------".getBytes());
-            escribir.write('\n');
-            escribir.write("       Cartelera de CineFBMoll".getBytes());
-            escribir.write('\n');
-            escribir.write("--------------------------------------".getBytes());
-            escribir.write('\n');
-
-            int corchete = 0;
-            for (int i = 0; i < letras.length; i++) {
-                if (letras[i] == '{') {
-                    corchete = i;
-                }
-            }
-            letras[corchete] = '#'; // en la posición 475 ({) se cambia por #
-            while (contar <= letras.length - 1 && encontrarSigno == false) {
-                if (letras[contar] != '#' && contar != letras.length - 1) {
-                    letra = Character.toString(letras[contar]);
-                    frase += letra; // si no es un # se forma una frase
-
-                    contar++;
-                } else {
-                    encontrarSigno = true;
-                    data++;
-                    contar++;
-                    int espacios = 0;
-                    int cortarLinea = 14; //cuenta los espacios ' ' para dar un salto de línea
-                    if (encontrarSigno == true) {
-                        if (frase.length() < 100) { // si es o no un párrafo
-                            escribir.write('\n');
-                            escribir.write(datos[data].getBytes());
-                            escribir.write(" : ".getBytes());
-                            escribir.write(frase.getBytes());
-                            escribir.write('\n');
-
-                            encontrarSigno = false;
-                            frase = "";
-                        } else {
-                            escribir.write('\n');
-                            escribir.write(datos[data].getBytes()); //sinopsis
-                            escribir.write(" : ".getBytes());
-                            for (int i = 0; i < frase.length(); i++) {
-                                char c = frase.charAt(i);
-                                if (c == ' ') {
-                                    espacios++;
-                                }
-                                if (espacios == cortarLinea) { //comprobación para dar salto de línea
-                                    escribir.write('\n');
-                                    cortarLinea += 15;
-                                }
-                                escribir.write(c);
-                            }
-                            escribir.write('\n');
-                            encontrarSigno = false;
-                            frase = "";
-                        }
-
-                        if (data + 1 == datos.length) {
-                            data = -1;
-                            escribir.write("-----------------------------".getBytes());
-                        }
-                    }//'#'
-                }
-            }//while
-        } catch (IOException exc) {
-            System.out.println("Error de lectura ");
+        int contador = 0;
+        while (b != -1) {
+            b = leer.read(); //se lee los bytes
+            char c = (char) b; // se convierte a char
+            letras[contador] = c;  // se guarda los char
+            contador++;
         }
+
+        //leer y escribir 
+        String[] datos = {"Título", "Año", "Director", "Duración",
+            "Sinopsis", "Reparto", "Sesión"};
+        String letra = "";
+        String frase = "";
+        int contar = 0;
+        boolean encontrarSigno = false;
+        int data = -1;
+
+        escribir.write("--------------------------------------".getBytes());
+        escribir.write('\n');
+        escribir.write("       Cartelera de CineFBMoll".getBytes());
+        escribir.write('\n');
+        escribir.write("--------------------------------------".getBytes());
+        escribir.write('\n');
+
+        int corchete = 0;
+        for (int i = 0; i < letras.length; i++) {
+            if (letras[i] == '{') {
+                corchete = i;
+            }
+        }
+        letras[corchete] = '#'; // en la posición 475 ({) se cambia por #
+        while (contar <= letras.length - 1 && encontrarSigno == false) {
+            if (letras[contar] != '#' && contar != letras.length - 1) {
+                letra = Character.toString(letras[contar]);
+                frase += letra; // si no es un # se forma una frase
+
+                contar++;
+            } else {
+                encontrarSigno = true;
+                data++;
+                contar++;
+                int espacios = 0;
+                int cortarLinea = 14; //cuenta los espacios ' ' para dar un salto de línea
+                if (encontrarSigno == true) {
+                    if (frase.length() < 100) { // si es o no un párrafo
+                        escribir.write('\n');
+                        escribir.write(datos[data].getBytes());
+                        escribir.write(" : ".getBytes());
+                        escribir.write(frase.getBytes());
+                        escribir.write('\n');
+
+                        encontrarSigno = false;
+                        frase = "";
+                    } else {
+                        escribir.write('\n');
+                        escribir.write(datos[data].getBytes()); //sinopsis
+                        escribir.write(" : ".getBytes());
+                        for (int i = 0; i < frase.length(); i++) {
+                            char c = frase.charAt(i);
+                            if (c == ' ') {
+                                espacios++;
+                            }
+                            if (espacios == cortarLinea) { //comprobación para dar salto de línea
+                                escribir.write('\n');
+                                cortarLinea += 15;
+                            }
+                            escribir.write(c);
+                        }
+                        escribir.write('\n');
+                        encontrarSigno = false;
+                        frase = "";
+                    }
+
+                    if (data + 1 == datos.length) {
+                        data = -1;
+                        escribir.write("-----------------------------".getBytes());
+                    }
+                }//'#'
+            }
+        }//while
 
     }
 
@@ -287,7 +345,8 @@ public class GestionarPractica7 {
     }
 
     //lectura y escritura linea a linea
-    public static void LeerFicheroLinea(File rutaLeer, File rutaEscribir) throws IOException {
+    public static void LeerFicheroLinea(File rutaLeer, File rutaEscribir)
+            throws IOException {
 
         BufferedReader lector = new BufferedReader(new FileReader(rutaLeer));
         BufferedWriter escritor = new BufferedWriter(new FileWriter(rutaEscribir));
@@ -324,22 +383,24 @@ public class GestionarPractica7 {
         escritor.close();
     }
 
-    //          **acciones con objetos**
+    //         *************** acciones con objetos **************
     // objeto linea a linea
-    public static void LineaLeerEscribirObjeto(File rutaLeer, File rutaEscribir) throws IOException {
-//devuelve un array de cartelera
+    public static void LineaLeerEscribirObjeto(File rutaLeer,
+            File rutaEscribir) throws IOException {
+        //devuelve un array de cartelera
         Cartelera listaCartelera[] = Cartelera.cargarDatosCartelera(rutaLeer);
         ObjectOutputStream escribir = new ObjectOutputStream(
                 new BufferedOutputStream(
                         new FileOutputStream(rutaEscribir)));
 
-//se escribe un array cartelera
+        //se escribe un array cartelera
         escribir.writeObject(listaCartelera);
         escribir.close();
     }
 
     // objeto : Leer SalObj) y escrituraficheroSalObj2.
-    public static void LecturaEscrituraOBjetos(File rutaLeer, File rutaEscribir) throws ClassNotFoundException, IOException {
+    public static void LecturaEscrituraOBjetos(File rutaLeer,
+            File rutaEscribir) throws ClassNotFoundException, IOException {
 
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
@@ -359,24 +420,30 @@ public class GestionarPractica7 {
     }
 
     //objeto consola : leer ficheroSalObj2 y escritura por consola 
-    public void LecturaEscrituraOBjetosConsola(File rutaLeer) throws ClassNotFoundException, IOException {
+    public void LecturaEscrituraOBjetosConsola(File rutaLeer)
+            throws ClassNotFoundException, IOException {
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(rutaLeer)));
+        try {
+            //leo los objetos en el mismo formato en el que fueron escritos
+            //array de Cartelera
+            Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
+            leer.close();
 
-        //leo los objetos en el mismo formato en el que fueron escritos
-        //array de Cartelera
-        Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
-        leer.close();
-
-        //recorro el array devuelto para imprimir los atributos de los objetos
-        for (Cartelera cartelera : listaCartelera) {
-            System.out.println(cartelera.mostrarDatos());
+            //recorro el array devuelto para imprimir los atributos de los objetos
+            for (Cartelera cartelera : listaCartelera) {
+                System.out.println(cartelera.mostrarDatos());
+            }
+        } catch (IOException ex) {
+            System.out.println("");
+        } catch (ClassNotFoundException ex) {
+            System.out.println("Clase no encontrada");
         }
 
     }
 
-    //objeto consola : leer por consola y SOBREescritura ficheroSalObj2 
+//objeto consola : leer por consola y SOBREescritura ficheroSalObj2 
     public void LecturaEscrituraOBjetosManual(File rutaEscribir) throws IOException {
         ObjectOutputStream escribir = new ObjectOutputStream(
                 new BufferedOutputStream(
@@ -393,5 +460,4 @@ public class GestionarPractica7 {
         escribir.writeObject(lista);
         escribir.close();
     }
-
 }

@@ -4,19 +4,10 @@
  * and open the template in the editor.
  */
 package gestionarpractica7;
+//fichero de salida
+public class ExcepcionInformativa extends Exception{
 
-/**
- *
- * @author sly
- */
-public class MiExcepcion extends Exception {
-
-    private String mensaje;
-
-    public MiExcepcion(String nuevo) {
-        super();
-        this.mensaje = ".";
-    }
+    private String mensaje = "\nERROR: El fichero no se encuentra. Intentalo de nuevo.\n";
 
     public String getMensaje() {
         return mensaje;
@@ -26,11 +17,8 @@ public class MiExcepcion extends Exception {
         this.mensaje = mensaje;
     }
 
-    public void mostrarMensaje() {
-        System.out.println("");
-        System.out.println(this.getMensaje());
-        System.out.println("");
-
+    public ExcepcionInformativa() {
+        super();
+        this.setMensaje(mensaje);
     }
-
 }

@@ -9,10 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-/**
- *
- * @author sly
- */
+
 public class Cartelera implements Serializable {
 
     private String titulo;
