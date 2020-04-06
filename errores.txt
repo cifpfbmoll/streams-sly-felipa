@@ -16,3 +16,33 @@ Error al ingresar los datos.[gestionarpractica7.GestionarPractica7.pedirRutaLeer
 2020-04-06 20:36:46.165
 Error al ingresar los datos.[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:170), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:24)]
 
+2020-04-06 20:42:44.321
+Error al ingresar los datos.[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:170), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:24)]
+
+2020-04-06 22:02:26.48
+Error al ingresar los datos.[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:170), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:24)]
+
+2020-04-06 22:09:38.014
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:24)]
+
+2020-04-06 22:09:43.671
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:36)]
+
+2020-04-06 22:09:52.034
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:48)]
+
+2020-04-06 22:09:57.152
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:64)]
+
+2020-04-06 22:10:00.789
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:76)]
+
+2020-04-06 22:10:04.559
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:88)]
+
+2020-04-06 22:10:08.005
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:98)]
+
+2020-04-06 22:12:42.036
+Error al ingresar los datos.[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:163), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:24)]
+

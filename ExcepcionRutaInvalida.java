@@ -38,17 +38,18 @@ public class ExcepcionRutaInvalida extends Exception {
         try {
             File docErrores = new File("C://Users/sly/Documents/NetBeansProjects/GestionarPractica7/src/gestionarpractica7/errores.txt");
             BufferedWriter escritor = new BufferedWriter(new FileWriter(docErrores, true));
+            //el true es para seguir escribiendo sin borrar lo anterior
+
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-            escritor.write(timestamp.toString() + "\n");
-            escritor.write(mensaje + "\n", 0, mensaje.length());
+            escritor.write(timestamp.toString() + "\n"+ mensaje);
 
             escritor.write(Arrays.toString(this.getStackTrace()) + "\n\n");
             escritor.close();
 
             // el timestamp se convierte a formato string 
             System.out.println(timestamp.toString());
-            System.out.println(mensaje);
+            System.out.print(mensaje);
 //
             //getStackTrace obtiene la información de rastreo de la pila.
             System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
@@ -59,12 +60,4 @@ public class ExcepcionRutaInvalida extends Exception {
 
     }
 
-//    public void errorPorConsola(Timestamp timestamp) {
-//        // el timestamp se convierte a formato string 
-//        System.out.println(timestamp.toString() + "\n");
-//        System.out.println(mensaje + "\n +++++++++++++");
-//
-//        //getStackTrace obtiene la información de rastreo de la pila.
-//        System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
-//    }
 }

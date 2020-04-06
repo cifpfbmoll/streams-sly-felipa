@@ -38,33 +38,20 @@ public class GestionarPractica7 {
                     File paraEscribir = pedirRutaEscribir();
                     LeerCaracter(paraLeer, paraEscribir);
                     System.out.println("\n ***** Revisa el fichero modificado. *****\n");
-                } catch (IOException excepcion) {
-                    System.out.println("");
-                    System.out.println("Error al leer el archivo");
-                    System.out.println("");
                 } catch (ExcepcionRutaInvalida ex) {
                     System.out.println("");
-                    //getMessage devuelve la cadena descriptiva almacenada en una excepción
-                    System.out.println(ex.getMessage());
-                    ex.guardarError(ex.getMessage(), ex);
-
+                    ex.guardarError(ex.getMensaje(), ex);
                 }
+
             } else if (op == 3) {
                 try {
                     File paraLeer = pedirRutaLeer();
                     System.out.println("");
                     File paraEscribir = pedirRutaEscribir();
                     LeerFicheroLinea(paraLeer, paraEscribir);
-                } catch (IOException excepcion) {
-                    System.out.println("");
-                    System.out.println("Error al leer el archivo");
-                    System.out.println("");
                 } catch (ExcepcionRutaInvalida ex) {
                     System.out.println("");
-
-                    //getMessage devuelve la cadena descriptiva almacenada en una excepción
-                    System.out.println(ex.getMessage());
-                    ex.guardarError(ex.getMessage(), ex);
+                    ex.guardarError(ex.getMensaje(), ex);
 
                 }
 
@@ -77,8 +64,10 @@ public class GestionarPractica7 {
                             File paraLeer = pedirRutaLeer();
                             System.out.println("");
                             File paraEscribir = pedirRutaEscribir();
-                        } catch (Exception e) {
-                            System.out.println("Error al leer el archivo");
+                        } catch (ExcepcionRutaInvalida ex) {
+                            System.out.println("");
+                            ex.guardarError(ex.getMensaje(), ex);
+
                         }
 
                     } else if (opSub == 2) {
@@ -87,8 +76,10 @@ public class GestionarPractica7 {
                             File paraLeer = pedirRutaLeer();
                             System.out.println("");
                             File paraEscribir = pedirRutaEscribir();
-                        } catch (Exception e) {
-                            System.out.println("Error al leer el archivo");
+                        } catch (ExcepcionRutaInvalida ex) {
+                            System.out.println("");
+                            ex.guardarError(ex.getMensaje(), ex);
+
                         }
 
                     } else if (opSub == 3) {
@@ -97,8 +88,9 @@ public class GestionarPractica7 {
                             File paraLeer = pedirRutaLeer();
                             System.out.println("");
                             File paraEscribir = pedirRutaEscribir();
-                        } catch (Exception e) {
-                            System.out.println("Error al leer el archivo");
+                        } catch (ExcepcionRutaInvalida ex) {
+                            System.out.println("");
+                            ex.guardarError(ex.getMensaje(), ex);
                         }
 
                     } else if (opSub == 4) {
@@ -106,8 +98,9 @@ public class GestionarPractica7 {
                             File paraLeer = pedirRutaLeer();
                             System.out.println("");
                             File paraEscribir = pedirRutaEscribir();
-                        } catch (Exception e) {
-                            System.out.println("Error al leer el archivo");
+                        } catch (ExcepcionRutaInvalida ex) {
+                            System.out.println("");
+                            ex.guardarError(ex.getMensaje(), ex);
                         }
 
                     } else if (opSub == 5) {
