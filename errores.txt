@@ -1,0 +1,9 @@
+2020-04-06 19:56:34.468
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:170), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:23)]
+
+2020-04-06 19:58:01.063
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:170), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:23)]
+
+2020-04-06 20:14:10.072
+[gestionarpractica7.GestionarPractica7.pedirRutaLeer(GestionarPractica7.java:172), gestionarpractica7.GestionarPractica7.main(GestionarPractica7.java:23)]
+

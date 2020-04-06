@@ -27,8 +27,11 @@ public class GestionarPractica7 {
                     System.out.println("\n ***** Revisa el fichero modificado. *****\n");
                 } catch (ExcepcionRutaInvalida ex) {
                     System.out.println("");
-                    System.out.println(ex.getMessage());
-                    ex.guardarError(ex.getMessage(), ex);
+                    //ex.getMessage()
+                    
+                    System.out.println(ex.getMensaje()+"  "+ex);
+//                    System.out.println(ex.guardarError(ex.getMensaje(), ex));
+//                    ex.guardarError(ex.getMessage(), ex);
                 }
 
             } else if (op == 2) {

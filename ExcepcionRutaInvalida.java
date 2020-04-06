@@ -15,7 +15,7 @@ public class ExcepcionRutaInvalida extends Exception {
 
     public ExcepcionRutaInvalida(String nuevo) {
         super();
-        this.mensaje = "Error al ingresar los datos.";
+        this.setMensaje("Error al ingresar los datos.");
     }
 
     public String getMensaje() {
@@ -40,18 +40,19 @@ public class ExcepcionRutaInvalida extends Exception {
             BufferedWriter escritor = new BufferedWriter(new FileWriter(docErrores, true));
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-            System.out.println(timestamp.toString() + "\n");
-            System.out.println(mensaje + "\n");
-
-            System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
-
             // el timestamp se convierte a formato string 
-            escritor.write(timestamp.toString() + "\n");
-            escritor.write(mensaje + "\n", 0, mensaje.length());
+            System.out.println(timestamp.toString() + "\n");
+            System.out.println(mensaje + "\n +++++++++++++");
 
             //getStackTrace obtiene la información de rastreo de la pila.
+            System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
+
+            escritor.write(timestamp.toString() + "\n");
+//            escritor.write(mensaje + "\n", 0, mensaje.length());
+
             escritor.write(Arrays.toString(this.getStackTrace()) + "\n\n");
             escritor.close();
+
         } catch (IOException excepcion) {
             System.out.println("Error al leer el archivo");
         }
