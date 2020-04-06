@@ -40,23 +40,31 @@ public class ExcepcionRutaInvalida extends Exception {
             BufferedWriter escritor = new BufferedWriter(new FileWriter(docErrores, true));
             Timestamp timestamp = new Timestamp(System.currentTimeMillis());
 
-            // el timestamp se convierte a formato string 
-            System.out.println(timestamp.toString() + "\n");
-            System.out.println(mensaje + "\n +++++++++++++");
-
-            //getStackTrace obtiene la información de rastreo de la pila.
-            System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
-
             escritor.write(timestamp.toString() + "\n");
-//            escritor.write(mensaje + "\n", 0, mensaje.length());
+            escritor.write(mensaje + "\n", 0, mensaje.length());
 
             escritor.write(Arrays.toString(this.getStackTrace()) + "\n\n");
             escritor.close();
 
+            // el timestamp se convierte a formato string 
+            System.out.println(timestamp.toString());
+            System.out.println(mensaje);
+//
+            //getStackTrace obtiene la información de rastreo de la pila.
+            System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
         } catch (IOException excepcion) {
-            System.out.println("Error al leer el archivo");
+
+            System.out.println("Error al leer el archivo errores.txt");
         }
 
     }
 
+//    public void errorPorConsola(Timestamp timestamp) {
+//        // el timestamp se convierte a formato string 
+//        System.out.println(timestamp.toString() + "\n");
+//        System.out.println(mensaje + "\n +++++++++++++");
+//
+//        //getStackTrace obtiene la información de rastreo de la pila.
+//        System.out.println(Arrays.toString(this.getStackTrace()) + "\n\n");
+//    }
 }

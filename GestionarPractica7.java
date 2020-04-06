@@ -1,6 +1,7 @@
 package gestionarpractica7;
 
 import java.io.*;
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class GestionarPractica7 {
@@ -27,11 +28,7 @@ public class GestionarPractica7 {
                     System.out.println("\n ***** Revisa el fichero modificado. *****\n");
                 } catch (ExcepcionRutaInvalida ex) {
                     System.out.println("");
-                    //ex.getMessage()
-                    
-                    System.out.println(ex.getMensaje()+"  "+ex);
-//                    System.out.println(ex.guardarError(ex.getMensaje(), ex));
-//                    ex.guardarError(ex.getMessage(), ex);
+                    ex.guardarError(ex.getMensaje(), ex);
                 }
 
             } else if (op == 2) {
@@ -428,22 +425,15 @@ public class GestionarPractica7 {
         ObjectInputStream leer = new ObjectInputStream(
                 new BufferedInputStream(
                         new FileInputStream(rutaLeer)));
-        try {
-            //leo los objetos en el mismo formato en el que fueron escritos
-            //array de Cartelera
-            Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
-            leer.close();
+        //leo los objetos en el mismo formato en el que fueron escritos
+        //array de Cartelera
+        Cartelera[] listaCartelera = (Cartelera[]) leer.readObject();
+        leer.close();
 
-            //recorro el array devuelto para imprimir los atributos de los objetos
-            for (Cartelera cartelera : listaCartelera) {
-                System.out.println(cartelera.mostrarDatos());
-            }
-        } catch (IOException ex) {
-            System.out.println("");
-        } catch (ClassNotFoundException ex) {
-            System.out.println("Clase no encontrada");
+        //recorro el array devuelto para imprimir los atributos de los objetos
+        for (Cartelera cartelera : listaCartelera) {
+            System.out.println(cartelera.mostrarDatos());
         }
-
     }
 
 //objeto consola : leer por consola y SOBREescritura ficheroSalObj2 
