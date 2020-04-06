@@ -1,10 +1,12 @@
 package gestionarpractica7;
 
 import java.io.*;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class GestionarPractica7 {
+
+    private static final String[] datos = {"Título", "Año", "Director", "Duración",
+        "Sinopsis", "Reparto", "Sesión"};
 
     public static void main(String[] args) throws IOException {
 
@@ -49,10 +51,11 @@ public class GestionarPractica7 {
                     System.out.println("");
                     File paraEscribir = pedirRutaEscribir();
                     LeerFicheroLinea(paraLeer, paraEscribir);
+                    System.out.println("\n ***** Revisa el fichero modificado. *****\n");
+
                 } catch (ExcepcionRutaInvalida ex) {
                     System.out.println("");
                     ex.guardarError(ex.getMensaje(), ex);
-
                 }
 
             } else if (op == 4) {
@@ -67,7 +70,6 @@ public class GestionarPractica7 {
                         } catch (ExcepcionRutaInvalida ex) {
                             System.out.println("");
                             ex.guardarError(ex.getMensaje(), ex);
-
                         }
 
                     } else if (opSub == 2) {
@@ -79,7 +81,6 @@ public class GestionarPractica7 {
                         } catch (ExcepcionRutaInvalida ex) {
                             System.out.println("");
                             ex.guardarError(ex.getMensaje(), ex);
-
                         }
 
                     } else if (opSub == 3) {
@@ -105,12 +106,10 @@ public class GestionarPractica7 {
 
                     } else if (opSub == 5) {
                         seguirSub = false;
-
                     } else {
                         System.out.println("Opción no válida");
                     }
                 }
-
             } else if (op == 5) {
                 seguir = false;
             } else {
@@ -134,7 +133,6 @@ public class GestionarPractica7 {
         System.out.println("");
         System.out.println("*****************************************************************");
         return read.nextInt();
-
     }
 
     public static int subMenu() {
@@ -160,7 +158,7 @@ public class GestionarPractica7 {
         File documento = new File(read.nextLine());
         boolean existe = documento.exists();
         if (!existe) {
-            throw new ExcepcionRutaInvalida("01");
+            throw new ExcepcionRutaInvalida();
         }
         return documento;
     }
@@ -171,7 +169,7 @@ public class GestionarPractica7 {
         File documento = new File(read.nextLine());
         boolean existe = documento.exists();
         if (!existe) {
-            throw new ExcepcionRutaInvalida("02");
+            throw new ExcepcionRutaInvalida();
         }
         return documento;
     }
@@ -194,8 +192,6 @@ public class GestionarPractica7 {
         }
 
         //leer y escribir 
-        String[] datos = {"Título", "Año", "Director", "Duración",
-            "Sinopsis", "Reparto", "Sesión"};
         String letra = "";
         String frase = "";
         int contar = 0;
@@ -287,8 +283,6 @@ public class GestionarPractica7 {
         FileReader lector = new FileReader(rutaLeer);
         FileWriter escritor = new FileWriter(rutaEscribir);
 
-        String[] datos = {"Título", "Año", "Director", "Duración",
-            "Sinopsis", "Reparto", "Sesión"};
         String cartelera = ("--------------------------------------\n"
                 + "       Cartelera de CineFBMoll\n"
                 + "--------------------------------------\n\n");
@@ -343,9 +337,6 @@ public class GestionarPractica7 {
 
         BufferedReader lector = new BufferedReader(new FileReader(rutaLeer));
         BufferedWriter escritor = new BufferedWriter(new FileWriter(rutaEscribir));
-
-        String[] datos = {"Título", "Año", "Director", "Duración",
-            "Sinopsis", "Reparto", "Sesión"};
 
         escritor.write("--------------------------------------\n"
                 + "       Cartelera de CineFBMoll\n"
